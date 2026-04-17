@@ -175,17 +175,19 @@ export default function ContentPlan({ onOpenUnit }: ContentPlanProps) {
               <div className="flex items-center gap-2 px-2 py-1 bg-blue-50/50 border border-blue-100 rounded-lg">
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger>
-                      <div className="flex items-center gap-2 cursor-help">
-                        <Zap className={`w-3.5 h-3.5 ${aeoMode ? 'text-blue-600' : 'text-slate-400'}`} />
-                        <span className="text-[10px] font-bold uppercase tracking-tight text-slate-600">AEO Mode</span>
-                        <Switch 
-                          checked={aeoMode} 
-                          onCheckedChange={setAEOMode} 
-                          className="scale-75 data-[state=checked]:bg-blue-600" 
-                        />
-                      </div>
-                    </TooltipTrigger>
+                    <TooltipTrigger 
+                      render={
+                        <div className="flex items-center gap-2 cursor-help">
+                          <Zap className={`w-3.5 h-3.5 ${aeoMode ? 'text-blue-600' : 'text-slate-400'}`} />
+                          <span className="text-[10px] font-bold uppercase tracking-tight text-slate-600">AEO Mode</span>
+                          <Switch 
+                            checked={aeoMode} 
+                            onCheckedChange={setAEOMode} 
+                            className="scale-75 data-[state=checked]:bg-blue-600" 
+                          />
+                        </div>
+                      }
+                    />
                     <TooltipContent className="bg-white border-border text-slate-600 text-[11px] p-3 max-w-xs shadow-xl">
                       <p className="font-bold mb-1">AI-Ready Content Mode (AEO/GEO)</p>
                       <p className="text-slate-500 italic">Optimizes for AI citation by prioritizing punchy answers, clear headers, and quotable FAQ blocks.</p>

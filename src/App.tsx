@@ -81,15 +81,17 @@ export default function App() {
 
         <div className="p-4 border-b border-border">
           <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button variant="outline" className="w-full justify-between bg-white border-border hover:bg-muted text-foreground font-medium">
-                <div className="flex items-center gap-2 truncate">
-                  <Target className="w-4 h-4 text-primary" />
-                  <span className="truncate">{activeProject?.name || 'Select Project'}</span>
-                </div>
-                <ChevronDown className="w-4 h-4 opacity-50" />
-              </Button>
-            </DropdownMenuTrigger>
+            <DropdownMenuTrigger 
+              render={
+                <Button variant="outline" className="w-full justify-between bg-white border-border hover:bg-muted text-foreground font-medium">
+                  <div className="flex items-center gap-2 truncate">
+                    <Target className="w-4 h-4 text-primary" />
+                    <span className="truncate">{activeProject?.name || 'Select Project'}</span>
+                  </div>
+                  <ChevronDown className="w-4 h-4 opacity-50" />
+                </Button>
+              }
+            />
             <DropdownMenuContent className="w-56 bg-white border-border">
               {projects.map(p => (
                 <DropdownMenuItem key={p.id} onClick={() => setActiveProject(p.id)} className="cursor-pointer">
